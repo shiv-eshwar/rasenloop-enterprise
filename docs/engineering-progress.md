@@ -22,13 +22,13 @@ Living log of what was built, verified, and decided. Update this file **every it
 | Phase | Status | Completed | Commit | Notes |
 | --- | --- | --- | --- | --- |
 | Docs bootstrap (`whatthis`, architecture, engineering, plan, supporting) | **Done** | 2026-11-23 | `2d2be4b` | Spec lock: fintech + FastAPI/Next + live+fake |
-| 0 — Monorepo + rasen-client | **Done** | 2026-11-24 | _(this push)_ | FakeChaosTransport + Idempotency-Key / If-Match |
-| 1 — Domain + policy + MCP | **Done** | 2026-11-24 | _(this push)_ | 5 MCP tools; effect_id UNIQUE; chaos hooks |
-| 2 — Pre-call + agent + webhooks | **Done** | 2026-11-24 | _(this push)_ | GET+POST lookup; Standard Webhooks verify; fake bootstrap |
-| 3 — Reconciler + War Room + kill switch | **Done** | 2026-11-24 | _(this push)_ | Next.js War Room builds; kill switch on fake |
-| 4 — Signals + evals + auto-rollback | **Done** | 2026-11-24 | _(this push)_ | ≥8 scenarios; bad publish → rollback |
-| 5 — CI + demo + field report | **Done** | 2026-11-24 | _(this push)_ | CI workflow; Loom/live metrics still human |
-| Interview ready | **Fake-path ready** | 2026-11-24 | _(this push)_ | Add `RASEN_API_KEY` for live share-link demos |
+| 0 — Monorepo + rasen-client | **Done** | 2026-11-24 | `8cb4d02` | FakeChaosTransport + Idempotency-Key / If-Match |
+| 1 — Domain + policy + MCP | **Done** | 2026-11-24 | `8cb4d02` | 5 MCP tools; effect_id UNIQUE; chaos hooks |
+| 2 — Pre-call + agent + webhooks | **Done** | 2026-11-24 | `8cb4d02` | GET+POST lookup; Standard Webhooks verify; fake bootstrap |
+| 3 — Reconciler + War Room + kill switch | **Done** | 2026-11-24 | `8cb4d02` | Next.js War Room builds; kill switch on fake |
+| 4 — Signals + evals + auto-rollback | **Done** | 2026-11-24 | `8cb4d02` | ≥8 scenarios; bad publish → rollback |
+| 5 — CI + demo + field report | **Done** | 2026-11-24 | `8cb4d02` | CI workflow; Loom/live metrics still human |
+| Interview ready | **Fake-path ready** | 2026-11-24 | `8cb4d02` | Add `RASEN_API_KEY` for live share-link demos |
 
 ---
 
