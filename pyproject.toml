@@ -1,0 +1,62 @@
+[project]
+name = "rasenloop-enterprise"
+version = "0.1.0"
+description = "Self-healing fintech voice support on Rasen API — Build → Evaluate → Improve"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "httpx>=0.27.0",
+  "pydantic>=2.9.0",
+  "pydantic-settings>=2.6.0",
+  "sqlalchemy>=2.0.36",
+  "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.24.0",
+  "ruff>=0.8.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = [
+  "packages/rasen-client/tests",
+  "apps/backend/tests",
+  "apps/mcp-server/tests",
+  "apps/eval-harness/tests",
+]
+pythonpath = [
+  "packages/rasen-client",
+  "packages/shared",
+  "apps/backend",
+  "apps/eval-harness",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = [
+  "B008",  # FastAPI Depends() in defaults is idiomatic
+  "E501",  # demo transcripts / long tool descriptions
+]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*" = ["E402"]
+"apps/mcp-server/app/tools.py" = ["E402"]
+"apps/mcp-server/tests/*" = ["E402"]
+"apps/eval-harness/rasenloop_eval/*" = ["E402"]
+
+[build-system]
+requires = ["setuptools>=75.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = []

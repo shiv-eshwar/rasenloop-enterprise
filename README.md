@@ -50,31 +50,41 @@ Naive voice agents hallucinate refunds, double-charge on timeouts, and ship prom
 
 ## Status
 
-**Phase:** Documentation bootstrap complete → implementation starts at **Phase 0** in [docs/plan.md](docs/plan.md).
+**Phases 0–5 complete on fake/offline path** (26 pytest green, War Room production build, CI workflow). Live Rasen is optional — set `RASEN_API_KEY` + tunnel URLs.
 
 ```text
-apps/       # backend, mcp-server, war-room, eval-harness (to be filled)
-packages/   # rasen-client, shared (to be filled)
-docs/       # source of truth (current)
-scripts/    # bootstrap / seed (to be filled)
+apps/backend/       # FastAPI: pre_call, webhooks, OTP, War Room API, control plane
+apps/mcp-server/    # Policy MCP tools (REST + JSON-RPC /mcp)
+apps/war-room/      # Next.js supervisor UI (:3000)
+apps/eval-harness/  # Living eval scenarios + runner
+packages/rasen-client/  # Live + FakeChaos transports
+packages/shared/        # Signal taxonomy
+docs/                   # Spec source of truth
+scripts/                # seed_db + bootstrap_rasen_agent
 ```
+
+Progress: [docs/engineering-progress.md](docs/engineering-progress.md) · Plan: [docs/plan.md](docs/plan.md)
 
 ---
 
-## Quickstart (after Phase 0 lands)
+## Quickstart
+
+Requires **Python 3.12+** (Makefile defaults to `python3.12`).
 
 ```bash
 git clone https://github.com/shiv-eshwar/rasenloop-enterprise.git
 cd rasenloop-enterprise
-cp apps/backend/.env.example apps/backend/.env   # add RASEN_API_KEY for live
+cp .env.example .env   # add RASEN_API_KEY for live
 make bootstrap
-make test          # fake transport
-make run-backend   # :8000
-make run-mcp       # :8001
-make run-war-room  # :3000
+make test              # fake transport (default)
+make smoke-eval
+make run-backend       # :8000
+make run-mcp           # :8001
+make run-war-room      # :3000
+PYTHONPATH=packages/rasen-client .venv/bin/python scripts/bootstrap_rasen_agent.py
 ```
 
-Live agent bootstrap and share-link steps: see `docs/engineering.md` and `docs/demo-playbook.md`.
+Demo script: [docs/demo-playbook.md](docs/demo-playbook.md).
 
 ---
 
