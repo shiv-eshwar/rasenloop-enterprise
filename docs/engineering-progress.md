@@ -21,7 +21,7 @@ Living log of what was built, verified, and decided. Update this file **every it
 
 | Phase | Status | Completed | Commit | Notes |
 | --- | --- | --- | --- | --- |
-| Docs bootstrap (`whatthis`, architecture, engineering, plan, supporting) | **Done** | 2026-11-23 | _(pending first commit)_ | Spec lock: fintech + FastAPI/Next + live+fake |
+| Docs bootstrap (`whatthis`, architecture, engineering, plan, supporting) | **Done** | 2026-11-23 | `2d2be4b` | Spec lock: fintech + FastAPI/Next + live+fake |
 | 0 — Monorepo + rasen-client | Not started | — | — | |
 | 1 — Domain + policy + MCP | Not started | — | — | |
 | 2 — Pre-call + agent + webhooks | Not started | — | — | |
